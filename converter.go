@@ -73,7 +73,12 @@ func (c *Converter) Parse(text string) error {
 	c.ggContext.Clear()
 
 	if len(text) != 0 {
-		styledTexts, err := ansi.Parse(text)
+		styledTexts, err := ansi.Parse(
+			text,
+			ansi.WithDefaultForegroundColor("37"),
+			ansi.WithDefaultBackgroundColor("30"),
+			ansi.WithIgnoreInvalidCodes(),
+		)
 		if err != nil {
 			return errors.Wrap(err, "failed to parse ANSI text")
 		}
