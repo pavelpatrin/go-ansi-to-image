@@ -114,14 +114,12 @@ func (c *Converter) Parse(text string) error {
 
 				// Select font face.
 				switch {
-				case (styledText.Style&ansi.Bold) > 0 && (styledText.Style&ansi.Italic) > 0:
+				case styledText.Bold() && styledText.Italic():
 					c.ggContext.SetFontFace(c.monoBoldObliqueFontFace)
-				case styledText.Style&ansi.Italic > 0:
+				case styledText.Italic():
 					c.ggContext.SetFontFace(c.monoObliqueFontFace)
-				case styledText.Style&ansi.Bold > 0:
+				case styledText.Bold():
 					c.ggContext.SetFontFace(c.monoBoldFontFace)
-				case styledText.Style&ansi.Faint > 0:
-					c.ggContext.SetFontFace(c.monoRegularFontFace)
 				default:
 					c.ggContext.SetFontFace(c.monoRegularFontFace)
 				}
