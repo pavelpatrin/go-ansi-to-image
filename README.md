@@ -1,5 +1,5 @@
 # go-ansi-to-image
-Go library converting ANSI colored text to images
+Go library converting ANSI colored text to the image.
 
 ### Source ANSI example
 [ansi-mc.txt](/tests/ansi-mc.txt)
